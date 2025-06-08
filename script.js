@@ -24,12 +24,12 @@ window.addEventListener("resize", resizeCanvas);
 
 // Player object
 const player = {
-  x: canvas.width * 0.2,
+  x: canvas.width * 0.3,
   y: canvas.height / 2,
-  radius: 20,
+  radius: 15,
   velocity: 0,
-  gravity: 0.5,
-  jumpForce: -10,
+  gravity: 0.65,
+  jumpForce: -11,
   trail: [],
   maxTrailLength: 10,
 
@@ -122,12 +122,12 @@ const player = {
 // Obstacle class
 class Obstacle {
   constructor() {
-    this.width = 60;
-    this.gap = 200;
+    this.width = 50;
+    this.gap = 150;
     this.x = canvas.width;
-    this.topHeight = Math.random() * (canvas.height - this.gap - 100) + 50;
+    this.topHeight = Math.random() * (canvas.height - this.gap - 150) + 80;
     this.bottomY = this.topHeight + this.gap;
-    this.speed = 5;
+    this.speed = 3;
     this.passed = false;
   }
 
@@ -276,7 +276,7 @@ let stars = Array(100)
   .fill()
   .map(() => new Star());
 let obstacleTimer = 0;
-const obstacleInterval = 100;
+const obstacleInterval = 160;
 
 let isMuted = false;
 let synth;
@@ -375,7 +375,7 @@ async function startGame() {
   startScreen.classList.add("hidden");
   const gameScreen = document.getElementById("gameScreen");
   gameScreen.classList.remove("hidden");
-  gameScreen.classList.add("no-blur"); // Remove blur on gameplay
+  gameScreen.classList.add("no-blur");
   document.getElementById("gameOverScreen").classList.add("hidden");
 
   // Fade in game screen
