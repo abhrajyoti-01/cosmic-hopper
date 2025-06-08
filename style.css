@@ -88,7 +88,6 @@ canvas {
   border-radius: 0;
   image-rendering: pixelated;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
@@ -104,6 +103,8 @@ canvas {
   /* Removed backdrop-filter blur to fix canvas blur issue */
   z-index: 10;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .hidden {
@@ -116,7 +117,7 @@ canvas {
   font-family: "Orbitron", sans-serif;
   font-size: 52px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
   background: linear-gradient(135deg, var(--neon-blue), var(--neon-magenta));
   -webkit-background-clip: text;
@@ -180,8 +181,9 @@ canvas {
 
 .instructions {
   font-size: 18px;
-  margin-top: 30px;
-  padding: 15px 30px;
+  margin-top: 25px;
+  padding: 15px 40px;
+  max-width: 600px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
@@ -229,6 +231,12 @@ canvas {
 
 .game-over {
   animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 @keyframes fadeInScale {
@@ -245,7 +253,7 @@ canvas {
 .high-score {
   font-family: "Rajdhani", sans-serif;
   font-size: 24px;
-  margin: 10px 0 20px;
+  margin: 0;
   padding: 10px 25px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -260,4 +268,50 @@ canvas {
   border: none !important;
   color: var(--neon-magenta) !important;
   text-shadow: 0 0 15px var(--neon-magenta) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .title {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .game-over {
+    gap: 10px;
+  }
+
+  .score {
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    top: 10px;
+  }
+
+  .btn {
+    font-size: 18px;
+    padding: 12px 30px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  .instructions {
+    font-size: 14px;
+    padding: 12px 25px;
+    margin-top: 15px;
+    max-width: 90%;
+  }
+
+  #muteBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    top: 10px;
+    right: 10px;
+  }
+
+  #gameContainer {
+    width: 100vw;
+    height: 100vh;
+  }
 }
